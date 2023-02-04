@@ -1,7 +1,7 @@
 import 'epenbook-components/css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Metatdata } from './content/metadata';
-import { PageTemplate, TableOfContents } from 'epenbook-components';
+import { BookPageTemplate, TableOfContents } from 'epenbook-components';
 import { Image, InputGroup, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
@@ -15,7 +15,7 @@ const Book = ()  => {
     }
 
     return(
-    <div className={`${inProgress? 'mt-5':''} bg-dark`}>
+    <div className={`${inProgress? 'mt-5':''} bg-dark book`}>
         {!inProgress&&
         <>
         <div className='letter-size mx-auto'>
@@ -34,7 +34,7 @@ const Book = ()  => {
                     key={sindex}
                 >
                     {section.content&&section.content.map((page, index)=>
-                        <PageTemplate
+                        <BookPageTemplate
                             key={index}
                             chapterTitle={chapter.title} 
                             chapterNo={cindex+1} 
@@ -43,7 +43,7 @@ const Book = ()  => {
                             pageNumber={page}
                         >
                             <PageNo key={index} pageNumber={page}/>
-                        </PageTemplate>
+                        </BookPageTemplate>
                     )}
                 </div>
                 )}
